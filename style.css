@@ -1,0 +1,349 @@
+/* Importação de fontes customizadas */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --color-primary: #8A2BE2; /* Violeta elétrico (Luz Estelar) */
+    --color-secondary: #39FF14; /* Verde Neon (Verde Neon) */
+    --color-dark: #1a1a2e; /* Azul escuro quase preto */
+    --color-light: #f0f0f0; /* Cinza claro */
+    --color-accent: #FFD700; /* Dourado */
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* Header */
+.site-header {
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-dark) 50%, var(--color-secondary) 100%);
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.site-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: var(--color-light);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.site-header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.site-header nav ul li {
+    margin-left: 2rem;
+}
+
+.site-header nav ul li a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.site-header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.site-header nav ul li a:hover {
+    color: var(--color-accent);
+}
+
+.site-header nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
+.main-content {
+    padding-top: 2rem;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background: url('../images/hero_background.jpg') no-repeat center center/cover; /* Crie uma imagem de fundo para o banner */
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero-text {
+    z-index: 2;
+    color: var(--color-light);
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-text h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-text p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* HQ Sections */
+.hq-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--color-accent);
+    margin-bottom: 0.8rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--color-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: stretch; /* Garante que os cards tenham a mesma altura */
+}
+
+.hq-card {
+    background-color: rgba(40, 40, 60, 0.7); /* Fundo semi-transparente */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent; /* Para o efeito de borda na interação */
+}
+
+.hq-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-color: var(--color-primary); /* Exemplo de borda interativa */
+}
+
+.hq-card img {
+    width: 100%;
+    height: 350px; /* Altura fixa para as capas */
+    object-fit: cover; /* Garante que a imagem preencha o espaço */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.hq-card:hover img {
+    transform: scale(1.05); /* Zoom sutil na imagem */
+}
+
+.hq-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    color: var(--color-accent);
+    padding: 1rem 1rem 0.5rem;
+    text-align: center;
+}
+
+.hq-card p {
+    font-size: 1rem;
+    color: var(--color-light);
+    padding: 0 1rem 1.5rem;
+    text-align: center;
+}
+
+/* Info Sections (Sobre, Contato) */
+.info-section {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 20px;
+    background-color: rgba(40, 40, 60, 0.7);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.info-content {
+    padding: 3rem;
+    text-align: center;
+}
+
+.info-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8rem;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.info-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 2px solid var(--color-secondary);
+    border-radius: 8px;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.contact-form button {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: center;
+    max-width: 200px;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.site-footer {
+    background-color: #0d0d1e;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-header h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .site-header nav ul {
+        flex-direction: column;
+    }
+
+    .site-header nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    .hero-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+
+    .hq-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .info-content {
+        padding: 2rem 1rem;
+    }
+
+    .info-content h2 {
+        font-size: 2rem;
+    }
+}
